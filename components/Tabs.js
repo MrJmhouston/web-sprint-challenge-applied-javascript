@@ -1,4 +1,4 @@
-// STEP 2: Create tabs
+// STEP 2: Create tabs 
 // -----------------------
 // Using axios send a GET request to the address: https://lambda-times-api.herokuapp.com/topics
 // Once the data is resolved use console logs or breakpoints to review the structure.
@@ -11,14 +11,8 @@
 // NOTE: you do _not_ need to install axios as it's included in the HTML via script element
 
 axios.get("https://lambda-times-api.herokuapp.com/topics")
-.then(({data}) => {
-  tabMaker(data);
-//   console.log(data);
-//   console.log(data.topics[0])
-//   console.log(data.topics[1]);
-//   console.log(data.topics[2]);
-//   console.log(data.topics[3]);
-//   console.log(data.topics[4]);
+.then((topics) => { 
+  tabMaker(topics.data.topics);
 })
 .catch(function(error) {
     console.log('There is an error');
@@ -26,28 +20,17 @@ axios.get("https://lambda-times-api.herokuapp.com/topics")
 
 const topicsDiv = document.querySelector(".topics");
 
+
 function tabMaker(info) {
-
     let tabDiv = document.createElement("div");
-    tabDiv.setAttribute('class', 'tab')
+    tabDiv.setAttribute("class", "tab");
 
-    // console.log(tabDiv)
+    info.forEach((element) => {
+      let newTab = document.createElement('div')
+      newTab.setAttribute('class', 'tab')
+      newTab.append(element)
+      tabDiv.append(newTab);
+    });
 
-    tabDiv.textContent = newTopic;
-    
-    topicsDiv.appendChild(tabDiv);
-    return tabDiv
+     topicsDiv.append(tabDiv);
 }
-
-
-  const newTopic = [];
-
-
-newTopic.forEach(topic => {
-    axios.get("https://lambda-times-api.herokuapp.com/topics");
-    const topicElement = tabMaker(topic.topics)
-    console.log(topicElement)
-    topicsDiv.appendChild(topicElement);
-    
-});
-
