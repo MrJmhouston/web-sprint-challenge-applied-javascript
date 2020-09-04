@@ -35,12 +35,22 @@ const cardsDiv = document.querySelector(".cards-container")
 
 
 function cardMaker(info) {
-  console.log(info);
-  console.log(info.javascript[0].authorName);
 
-  let cardDiv = document.createElement("div");
-  cardDiv.setAttribute("class", "card");
-  console.log(cardDiv);
+  let jcardDiv = document.createElement("div");
+  jcardDiv.setAttribute("class", "card");
+
+  let bcardDiv = document.createElement("div");
+  bcardDiv.setAttribute("class", "card");
+
+  let ncardDiv = document.createElement("div");
+  ncardDiv.setAttribute("class", "card");
+
+  let tcardDiv = document.createElement("div");
+  tcardDiv.setAttribute("class", "card");
+
+  let jQcardDiv = document.createElement("div");
+  jQcardDiv.setAttribute("class", "card");
+  console.log(jcardDiv);
 
   let headlineDiv = document.createElement("div");
   headlineDiv.setAttribute("class", "headline");
@@ -53,41 +63,71 @@ function cardMaker(info) {
   imageDiv.setAttribute("class", "img-container");
 
   let image = document.createElement("img");
-  image.setAttribute("src", info.javascript[0].authorPhoto);
 
   let authorsName = document.createElement("span");
-  authorsName.textContent = "By { }";
 
   info.javascript.forEach((element) => {
       console.log(element)
       let card = document.createElement("div")
-      card.append(element)
-      cardDiv.append(card);
+      headlineDiv.append(element.headline);
+      image.append(element.authorPhoto);
+      authorsName.append(element.authorName)
+      card.append(headlineDiv);
+      card.append(image)
+      card.append(authorsName)
+      jcardDiv.append(card);
   });
 
   info.bootstrap.forEach((element) => {
       let card = document.createElement("div")
-      card.append(element)
-      cardDiv.append(card);
+      headlineDiv.append(element.headline);
+      image.append(element.authorPhoto);
+      authorsName.append(element.authorName);
+      card.append(headlineDiv);
+      card.append(image);
+      card.append(authorsName);
+      bcardDiv.append(card);
+      
   });
 
   info.jquery.forEach((element) => {
       let card = document.createElement("div")
-      card.append(element)
-      cardDiv.append(card);
+      headlineDiv.append(element.headline);
+      image.append(element.authorPhoto);
+      authorsName.append(element.authorName);
+      card.append(headlineDiv);
+      card.append(image);
+      card.append(authorsName);
+      jQcardDiv.append(card);
+      
   });
 
   info.node.forEach((element) => {
       let card = document.createElement("div")
-      card.append(element)
-      cardDiv.append(card);
+      headlineDiv.append(element.headline);
+      image.append(element.authorPhoto);
+      authorsName.append(element.authorName);
+      card.append(headlineDiv);
+      card.append(image);
+      card.append(authorsName);
+      ncardDiv.append(card);
+      
   });
 
   info.technology.forEach((element) => {
       let card = document.createElement("div")
-      card.append(element)
-      cardDiv.append(card);
+      headlineDiv.append(element.headline);
+      image.append(element.authorPhoto);
+      authorsName.append(element.authorName);
+      card.append(headlineDiv);
+      card.append(image);
+      card.append(authorsName);
+      tcardDiv.append(card);
   });
 
-  cardsDiv.append(cardDiv);
+  cardsDiv.append(jcardDiv);
+  cardsDiv.append(jQcardDiv);
+  cardsDiv.append(ncardDiv);
+  cardsDiv.append(tcardDiv);
+  cardsDiv.append(bcardDiv);
 }
