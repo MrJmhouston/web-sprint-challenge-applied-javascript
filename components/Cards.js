@@ -35,37 +35,59 @@ const cardsDiv = document.querySelector(".cards-container")
 
 
 function cardMaker(info) {
-    console.log(info)
-    console.log(info.javascript[0].authorName)
+  console.log(info);
+  console.log(info.javascript[0].authorName);
 
-    // let cardDiv = document.createElement("div")
-    // cardDiv.setAttribute('class', 'card')
-    // console.log(cardDiv)
+  let cardDiv = document.createElement("div");
+  cardDiv.setAttribute("class", "card");
+  console.log(cardDiv);
 
-    // let headlineDiv = document.createElement("div")
-    // headlineDiv.setAttribute("class" ,"headline")
-    // headlineDiv.textContent = info.javascript[0].headline;
+  let headlineDiv = document.createElement("div");
+  headlineDiv.setAttribute("class", "headline");
+  
 
-    // let authorDiv = document.createElement("div")
-    // authorDiv.setAttribute('class', 'author')
+  let authorDiv = document.createElement("div");
+  authorDiv.setAttribute("class", "author");
 
-    // let imageDiv = document.createElement("div")
-    // imageDiv.setAttribute("class", "img-container")
+  let imageDiv = document.createElement("div");
+  imageDiv.setAttribute("class", "img-container");
 
-    // let image = document.createElement('img')
-    // image.setAttribute("src", info.javascript[0].authorPhoto);
+  let image = document.createElement("img");
+  image.setAttribute("src", info.javascript[0].authorPhoto);
 
-    // let authorsName = document.createElement('span')
-    // authorsName.textContent = "By { }";
+  let authorsName = document.createElement("span");
+  authorsName.textContent = "By { }";
 
-    // info.forEach((element) => {
-    //     console.log(element)
-    //     let card = document.createElement("div")
-    //     card.append(element)
-    //     cardDiv.append(card);
-    // });
+  info.javascript.forEach((element) => {
+      console.log(element)
+      let card = document.createElement("div")
+      card.append(element)
+      cardDiv.append(card);
+  });
 
-    // cardsDiv.append(cardDiv);
+  info.bootstrap.forEach((element) => {
+      let card = document.createElement("div")
+      card.append(element)
+      cardDiv.append(card);
+  });
 
+  info.jquery.forEach((element) => {
+      let card = document.createElement("div")
+      card.append(element)
+      cardDiv.append(card);
+  });
 
+  info.node.forEach((element) => {
+      let card = document.createElement("div")
+      card.append(element)
+      cardDiv.append(card);
+  });
+
+  info.technology.forEach((element) => {
+      let card = document.createElement("div")
+      card.append(element)
+      cardDiv.append(card);
+  });
+
+  cardsDiv.append(cardDiv);
 }
